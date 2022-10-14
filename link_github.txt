@@ -1,1 +1,2 @@
 https://github.com/Pmamos/Analiza_i_bazy_Piotr_Mamos.git
+https://github.com/KAIR-ISZ-ADB/lab1_connection-Pmamos
