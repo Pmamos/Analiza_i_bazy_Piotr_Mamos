@@ -1,0 +1,1 @@
+Original data files is available in /OriginalData folder. File 10_POMORSKIE.csv is also copied to /AnalysisData, and next it will be changed in /CommandFiles
