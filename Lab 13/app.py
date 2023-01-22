@@ -22,3 +22,10 @@ def bubble_sort(unsorted: list[int]):
                 unsorted[i+1], unsorted[i] = unsorted[i], unsorted[i+1]
                 flag = True
     return unsorted
+
+def hanoi(n, source, target, auxiliary, move_disk=print):
+    if n > 0:
+        hanoi(n-1, source, auxiliary, target, move_disk)
+        move_disk(n, source, target)
+        hanoi(n-1, auxiliary, target, source, move_disk)
+

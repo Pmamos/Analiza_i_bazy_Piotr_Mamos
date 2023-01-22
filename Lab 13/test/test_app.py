@@ -2,6 +2,7 @@ from app import hello
 from app import extract_sentiment
 from app import text_contain_word
 from app import bubble_sort
+from app import hanoi
 import pytest
 
 
@@ -41,3 +42,20 @@ testdata3 = [
 @pytest.mark.parametrize('unsorted, sorted', testdata3)
 def test_text_contain_word(unsorted, sorted):
     assert bubble_sort(unsorted) == sorted
+
+
+def test_hanoi():
+
+    moves = []
+    def capture_move(n, source, target):
+        moves.append(f"Move disk {n} from {source} to {target}")
+    hanoi(3, "A", "C", "B", move_disk=capture_move)
+    expected_output = ["Move disk 1 from A to C", "Move disk 2 from A to B", "Move disk 1 from C to B", "Move disk 3 from A to C", "Move disk 1 from B to A", "Move disk 2 from B to C", "Move disk 1 from A to C"]
+    assert moves == expected_output
+
+
+    moves = []
+    hanoi(4, "A", "C", "B", move_disk=capture_move)
+    expected_output = ["Move disk 1 from A to B", "Move disk 2 from A to C", "Move disk 1 from B to C", "Move disk 3 from A to B", "Move disk 1 from C to A", "Move disk 2 from C to B", "Move disk 1 from A to B", "Move disk 4 from A to C", "Move disk 1 from B to C", "Move disk 2 from B to A", "Move disk 1 from C to A", "Move disk 3 from B to C", "Move disk 1 from A to B", "Move disk 2 from A to C", "Move disk 1 from B to C"]
+    assert moves == expected_output
+
